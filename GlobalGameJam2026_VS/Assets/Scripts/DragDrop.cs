@@ -59,10 +59,49 @@ public class DragDrop : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        NPC npc = holdingGameObject != null ? holdingGameObject.GetComponent<NPC>() : null;
+
         if (Physics.Raycast(ray, out hit, 100, seatLayer))
         {
-            holdingGameObject.transform.position = hit.transform.position;
-            holdingGameObject.transform.rotation = hit.transform.rotation;
+            var seat = hit.transform.GetComponent<Seat>();
+            if (seat != null && npc != null)
+            {
+                // no permitir dos animales en el mismo asiento
+                if (seat.occupant != null && seat.occupant != npc)
+                {
+                    // revertir al origen si el asiento ya está ocupado
+                    holdingGameObject.transform.position = draggedPosition;
+                    holdingGameObject.transform.rotation = draggedRotation;
+                }
+                else
+                {
+                    holdingGameObject.transform.position = hit.transform.position;
+                    holdingGameObject.transform.rotation = hit.transform.rotation;
+
+                    var previousSeat = npc.CurrentSeat;
+                    if (previousSeat != null && previousSeat.occupant == npc)
+                    {
+                        previousSeat.ClearOccupant();
+                        if (previousSeat.leftNeighbor?.occupant != null)
+                            previousSeat.leftNeighbor.occupant.EvaluateNeighbors();
+                        if (previousSeat.rightNeighbor?.occupant != null)
+                            previousSeat.rightNeighbor.occupant.EvaluateNeighbors();
+                    }
+
+                    seat.SetOccupant(npc);
+
+                    npc.EvaluateNeighbors();
+                    if (seat.leftNeighbor?.occupant != null)
+                        seat.leftNeighbor.occupant.EvaluateNeighbors();
+                    if (seat.rightNeighbor?.occupant != null)
+                        seat.rightNeighbor.occupant.EvaluateNeighbors();
+                }
+            }
+            else
+            {
+                holdingGameObject.transform.position = draggedPosition;
+                holdingGameObject.transform.rotation = draggedRotation;
+            }
         }
         else
         {
