@@ -28,9 +28,9 @@ public class NPCSpawner : MonoBehaviour
 
     private void Start()
     {
-        Spawn(Mask.Chameleon);
-        Spawn(Mask.Tiger);
         Spawn(Mask.Mouse);
+        Spawn(Mask.Zebra);
+        Spawn(Mask.Elephant);
         Spawn(Mask.Chameleon);
         Spawn(Mask.Chameleon);
     }
@@ -52,6 +52,9 @@ public class NPCSpawner : MonoBehaviour
                 int chosen = Random.Range(0, spawnPoints.Count);
 
                 GameObject spawnedNPC = Instantiate(NPC, spawnPoints[chosen].transform.position, spawnPoints[chosen].transform.rotation);
+
+                if (mask != Mask.Chameleon) spawnedNPC.transform.GetChild(0).GetComponent<Animator>().SetBool(mask.ToString(), true);
+                
                 spawnedNPC.GetComponent<NPCMovement>().GoTo(queueGoals[currentQueueGoal]);
                 currentQueueGoal++;
 
