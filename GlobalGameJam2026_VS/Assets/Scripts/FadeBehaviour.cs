@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FadeBehaviour : MonoBehaviour
 {
@@ -8,22 +9,57 @@ public class FadeBehaviour : MonoBehaviour
 
     private void Start()
     {
+        ResetParameters();
+    }
+
+    /// <summary>
+    /// Resets see-through parameters (ONLY use when needed)
+    /// </summary>
+    public void ResetParameters()
+    {
         fadeMat.SetFloat("_CanSeeThrough", 0);
-        fadeMat.SetFloat("_SeeThroughDistance", 0);
+        fadeMat.SetFloat("_SeeThroughDistance", 1);
     }
 
-    void Update()
+    /// <summary>
+    /// Starts see-through shader effect
+    /// </summary>
+    public void SeeThrough()
     {
-        if (fadeMat.GetFloat("_CanSeeThrough") == 1 && fadeMat.GetFloat("_SeeThroughDistance") < 3) 
-            fadeMat.SetFloat("_SeeThroughDistance", fadeMat.GetFloat("_SeeThroughDistance") +Time.deltaTime * speed);
+        StartCoroutine(SeeThroughTimer());
+    }
 
-        if (fadeMat.GetFloat("_CanSeeThrough") == 0 && fadeMat.GetFloat("_SeeThroughDistance") > 0)
+    /// <summary>
+    /// Stops see-through shader effect
+    /// </summary>
+    public void StopSeeThrough()
+    {
+        StartCoroutine(StopSeeThroughTimer());
+    }
+
+    IEnumerator SeeThroughTimer()
+    {
+        while (fadeMat.GetFloat("_SeeThroughDistance") > 0)
+        {
             fadeMat.SetFloat("_SeeThroughDistance", fadeMat.GetFloat("_SeeThroughDistance") - Time.deltaTime * speed);
-    }
+            yield return new WaitForSeconds(.1f / speed);
+        }
 
-    public void InstaStopFade()
+        StopCoroutine(SeeThroughTimer());
+    }
+    IEnumerator StopSeeThroughTimer()
     {
-        fadeMat.SetFloat("_SeeThroughDistance", 0);
+        while (fadeMat.GetFloat("_SeeThroughDistance") < 1)
+        {
+            fadeMat.SetFloat("_SeeThroughDistance", fadeMat.GetFloat("_SeeThroughDistance") + Time.deltaTime * speed);
+            yield return new WaitForSeconds(.1f / speed);
+        }
+        StopCoroutine(StopSeeThroughTimer());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W)) SeeThrough();
+        if (Input.GetKeyDown(KeyCode.E)) StopSeeThrough();
+    }
 }

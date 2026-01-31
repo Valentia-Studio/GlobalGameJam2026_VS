@@ -45,7 +45,7 @@ Material:
     - _CanSeeThrough: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SeeThroughDistance: 0
+    - _SeeThroughDistance: 0.98520327
     - _SeeThroughDistance_Final: 3
     - _VectorToCamera: 26.5
     m_Colors:
