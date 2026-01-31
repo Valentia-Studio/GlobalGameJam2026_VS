@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrefabScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/UIScene.unity
+    guid: 1c480dfb0c0a01c41ac1ef976d1e2e18
+  - enabled: 1
+    path: Assets/Scenes/NPC_Behabiur.unity
+    guid: d3d0a183356503849b151fd9341ce9ee
+  - enabled: 1
+    path: Assets/Scenes/Procedural_Environment.unity
+    guid: 7c260a73faaab6142a06f61ae9204b69
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
