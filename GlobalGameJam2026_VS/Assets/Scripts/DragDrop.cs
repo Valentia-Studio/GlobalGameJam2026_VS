@@ -3,6 +3,7 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour
 {
     [SerializeField] LayerMask seatLayer, interactableLayer, allLayers;
+    [SerializeField] GameObject shadow;
 
     bool holding = false;
     GameObject holdingGameObject;
@@ -34,7 +35,13 @@ public class DragDrop : MonoBehaviour
     {
         holdingGameObject = gameObject;
         holdingGameObject.GetComponent<Rigidbody>().isKinematic = true;
+        
+        holdingGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Grab", true);
+        holdingGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Sit", false);
+        
         holdingGameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        Cursor.visible = false;
+        shadow.SetActive(true);
 
         draggedPosition = holdingGameObject.transform.position;
         draggedRotation = holdingGameObject.transform.rotation;
@@ -44,21 +51,29 @@ public class DragDrop : MonoBehaviour
 
     private void Drag()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(holdingGameObject.transform.position, -Vector3.up, Color.yellow);
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);      
         RaycastHit hit;
+
+        holdingGameObject.transform.Rotate(new Vector3(0, 1, 0));
+
 
         if (Physics.Raycast(ray, out hit, 100, allLayers))
         {
-            holdingGameObject.transform.position = hit.point + Vector3.up * 2;
-            holdingGameObject.transform.LookAt(Camera.main.transform);
+            holdingGameObject.transform.position = hit.point + Vector3.up * 5;
+            shadow.transform.position = hit.point + Vector3.up * .1f;
         }
     }
 
     void Drop()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
+        Cursor.visible = true;
+        shadow.SetActive(false);
+
+        Ray ray = new(holdingGameObject.transform.position, -Vector3.up);
+        RaycastHit hit;
         NPC npc = holdingGameObject != null ? holdingGameObject.GetComponent<NPC>() : null;
 
         if (Physics.Raycast(ray, out hit, 100, seatLayer))
@@ -84,6 +99,7 @@ public class DragDrop : MonoBehaviour
                     }
 
                     seat.SetOccupant(npc);
+                    if (!seat.transform.name.Contains("Stay"))npc.transform.GetChild(0).GetComponent<Animator>().SetBool("Sit", true);
 
                     if (npc.species == Species.Elefante || (npc.species == Species.Camaleon && npc.actsAsElefante))
                     {
@@ -109,6 +125,9 @@ public class DragDrop : MonoBehaviour
         holdingGameObject.layer = LayerMask.NameToLayer("Grabbable");
         holdingGameObject = null;
         holding = false;
+
+        npc.transform.GetChild(0).GetComponent<Animator>().SetBool("Grab", false);
+
     }
 
     private void TryReassignNeighbor(Seat neighbor)
