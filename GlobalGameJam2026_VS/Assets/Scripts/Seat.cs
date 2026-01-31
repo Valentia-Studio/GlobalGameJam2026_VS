@@ -50,9 +50,14 @@ public class Seat : MonoBehaviour
         if (npc != null)
         {
             npc.CurrentSeat = this;
+
+            if (npc.species == Species.Camaleon)
+            {
+                var effective = npc.GetChameleonEffectiveSpeciesForSeat(this);
+                npc.actsAsElefante = (effective == Species.Elefante);
+            }
         }
 
-        // Si quien se sienta es un elefante o un camaleón que actúa como elefante, bloquear los asientos laterales
         if (npc != null && (npc.species == Species.Elefante || (npc.species == Species.Camaleon && npc.actsAsElefante)))
         {
             if (leftNeighbor != null) leftNeighbor.SetBlockedBy(npc);

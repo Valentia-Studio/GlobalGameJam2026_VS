@@ -14,12 +14,12 @@ public class CameraSwitcher : MonoBehaviour
     void Start()
     {
         ApplyCurrent();
-        lastSwitchTime = Time.time - switchCooldown; // permitir el primer cambio inmediatamente
+        lastSwitchTime = Time.time - switchCooldown;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) // click derecho
+        if (Input.GetMouseButtonDown(1))
         {
             TryNext();
         }
@@ -28,7 +28,7 @@ public class CameraSwitcher : MonoBehaviour
     private void TryNext()
     {
         if (cameras == null || cameras.Length == 0) return;
-        if (Time.time - lastSwitchTime < switchCooldown) return; // aún en cooldown
+        if (Time.time - lastSwitchTime < switchCooldown) return; 
 
         index = (index + 1) % cameras.Length;
         ApplyCurrent();

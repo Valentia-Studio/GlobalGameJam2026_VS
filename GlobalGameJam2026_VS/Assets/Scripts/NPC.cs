@@ -41,7 +41,22 @@ public class NPC : MonoBehaviour
                 ? GetChameleonEffectiveSpecies(left, right, front, frontLeft, frontRight, back, backLeft, backRight)
                 : species;
 
+            bool prevActsAsElefante = actsAsElefante;
             actsAsElefante = species == Species.Camaleon && speciesToEvaluate == Species.Elefante;
+
+            if (species == Species.Camaleon)
+            {
+                if (actsAsElefante && !prevActsAsElefante)
+                {
+                    if (left != null) left.SetBlockedBy(this);
+                    if (right != null) right.SetBlockedBy(this);
+                }
+                else if (!actsAsElefante && prevActsAsElefante)
+                {
+                    if (left != null) left.ClearBlockIfBy(this);
+                    if (right != null) right.ClearBlockIfBy(this);
+                }
+            }
 
             Debug.Log($"[NPC] {name} ({species}) en seat {CurrentSeat.name} -> especie efectiva: {speciesToEvaluate} | actuaComoElefante: {actsAsElefante}");
 
