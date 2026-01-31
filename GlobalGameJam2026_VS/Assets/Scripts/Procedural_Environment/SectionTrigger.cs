@@ -11,6 +11,7 @@ public class SectionTrigger : MonoBehaviour
             if (sectionData != null)
             {
                 SectionManager.Instance.SpawnNextSection();
+                Destroy(sectionData.gameObject, 1f);
             }
         }
 
