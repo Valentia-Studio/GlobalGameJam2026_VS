@@ -85,7 +85,7 @@ public class DragDrop : MonoBehaviour
 
                     seat.SetOccupant(npc);
 
-                    if (npc.species == Species.Elefante)
+                    if (npc.species == Species.Elefante || (npc.species == Species.Camaleon && npc.actsAsElefante))
                     {
                         TryReassignNeighbor(seat.leftNeighbor);
                         TryReassignNeighbor(seat.rightNeighbor);
@@ -116,10 +116,9 @@ public class DragDrop : MonoBehaviour
         if (neighbor == null || neighbor.occupant == null) return;
 
         var other = neighbor.occupant;
-        if (other.assignedSeat == null) return; // si no hay asiento asignado, no mover
-        if (!other.assignedSeat.IsSeatFreeFor(other)) return; // si el asignado está ocupado o bloqueado, no mover
+        if (other.assignedSeat == null) return;
+        if (!other.assignedSeat.IsSeatFreeFor(other)) return;
 
-        // Mover físicamente y actualizar ocupantes
         var assigned = other.assignedSeat;
         other.transform.position = assigned.transform.position;
         other.transform.rotation = assigned.transform.rotation;

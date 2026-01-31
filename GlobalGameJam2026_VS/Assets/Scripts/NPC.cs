@@ -6,7 +6,8 @@ public enum Species
     Tigre,
     Raton,
     Cebra,
-    Buho
+    Buho,
+    Camaleon
 }
 
 public class NPC : MonoBehaviour
@@ -18,6 +19,8 @@ public class NPC : MonoBehaviour
     public Seat CurrentSeat;
 
     public Seat assignedSeat;
+
+    public bool actsAsElefante;
 
     public void EvaluateNeighbors()
     {
@@ -34,26 +37,31 @@ public class NPC : MonoBehaviour
             var backLeft = CurrentSeat.backLeftNeighbor;
             var backRight = CurrentSeat.backRightNeighbor;
 
-            switch (species)
+            var speciesToEvaluate = species == Species.Camaleon
+                ? GetChameleonEffectiveSpecies(left, right, front, frontLeft, frontRight, back, backLeft, backRight)
+                : species;
+
+            actsAsElefante = species == Species.Camaleon && speciesToEvaluate == Species.Elefante;
+
+            Debug.Log($"[NPC] {name} ({species}) en seat {CurrentSeat.name} -> especie efectiva: {speciesToEvaluate} | actuaComoElefante: {actsAsElefante}");
+
+            switch (speciesToEvaluate)
             {
                 case Species.Elefante:
-                    if ((left != null && left.occupant != null) || (right != null && right.occupant != null))
-                    {
-                        canSit = false;
-                        break;
-                    }
-                    if ((front != null && front.occupant != null && front.occupant.species == Species.Raton) ||
+                    bool sideOccupied = (left != null && left.occupant != null) || (right != null && right.occupant != null);
+                    bool mouseInFront =
+                        (front != null && front.occupant != null && front.occupant.species == Species.Raton) ||
                         (frontLeft != null && frontLeft.occupant != null && frontLeft.occupant.species == Species.Raton) ||
-                        (frontRight != null && frontRight.occupant != null && frontRight.occupant.species == Species.Raton))
-                    {
-                        canSit = false;
-                    }
+                        (frontRight != null && frontRight.occupant != null && frontRight.occupant.species == Species.Raton);
+                    canSit = !(sideOccupied || mouseInFront);
+                    Debug.Log($"[Elefante] lados ocupados: {sideOccupied}, raton delante: {mouseInFront}, canSit: {canSit}");
                     break;
 
                 case Species.Raton:
                     bool leftHasTiger = left != null && left.occupant != null && left.occupant.species == Species.Tigre;
                     bool rightHasTiger = right != null && right.occupant != null && right.occupant.species == Species.Tigre;
                     canSit = !(leftHasTiger || rightHasTiger);
+                    Debug.Log($"[Raton] tigre izquierda: {leftHasTiger}, tigre derecha: {rightHasTiger}, canSit: {canSit}");
                     break;
 
                 case Species.Cebra:
@@ -61,6 +69,7 @@ public class NPC : MonoBehaviour
                     bool rightTiger = right != null && right.occupant != null && right.occupant.species == Species.Tigre;
                     bool frontTiger = front != null && front.occupant != null && front.occupant.species == Species.Tigre;
                     canSit = !(leftTiger || rightTiger || frontTiger);
+                    Debug.Log($"[Cebra] tigre izquierda: {leftTiger}, tigre derecha: {rightTiger}, tigre frente: {frontTiger}, canSit: {canSit}");
                     break;
 
                 case Species.Tigre:
@@ -68,6 +77,7 @@ public class NPC : MonoBehaviour
                     bool rightBad = right != null && right.occupant != null && (right.occupant.species == Species.Raton || right.occupant.species == Species.Cebra);
                     bool frontBad = front != null && front.occupant != null && (front.occupant.species == Species.Raton || front.occupant.species == Species.Cebra);
                     canSit = !(leftBad || rightBad || frontBad);
+                    Debug.Log($"[Tigre] conflicto izq: {leftBad}, der: {rightBad}, frente: {frontBad}, canSit: {canSit}");
                     break;
 
                 case Species.Buho:
@@ -81,6 +91,12 @@ public class NPC : MonoBehaviour
                         (backLeft != null && backLeft.occupant != null) ||
                         (backRight != null && backRight.occupant != null);
                     canSit = !anyOccupied;
+                    Debug.Log($"[Buho] hay ocupados alrededor: {anyOccupied}, canSit: {canSit}");
+                    break;
+
+                case Species.Camaleon:
+                    canSit = true;
+                    Debug.Log("[Camaleon] sin vecinos relevantes, sin restricciones.");
                     break;
 
                 default:
@@ -94,5 +110,46 @@ public class NPC : MonoBehaviour
         {
             rend.material = canSit ? canSitMaterial : cannotSitMaterial;
         }
+    }
+
+    public Species GetChameleonEffectiveSpeciesForSeat(Seat seat)
+    {
+        if (seat == null) return Species.Camaleon;
+        return GetChameleonEffectiveSpecies(
+            seat.leftNeighbor,
+            seat.rightNeighbor,
+            seat.frontNeighbor,
+            seat.frontLeftNeighbor,
+            seat.frontRightNeighbor,
+            seat.backNeighbor,
+            seat.backLeftNeighbor,
+            seat.backRightNeighbor
+        );
+    }
+
+    private Species GetChameleonEffectiveSpecies(Seat left, Seat right, Seat front, Seat frontLeft, Seat frontRight, Seat back, Seat backLeft, Seat backRight)
+    {
+        bool HasNeighborSpecies(Species s, Seat seat) => seat != null && seat.occupant != null && seat.occupant.species == s;
+
+        bool hasTiger = HasNeighborSpecies(Species.Tigre, left) || HasNeighborSpecies(Species.Tigre, right) || HasNeighborSpecies(Species.Tigre, front) ||
+            HasNeighborSpecies(Species.Tigre, frontLeft) || HasNeighborSpecies(Species.Tigre, frontRight) || HasNeighborSpecies(Species.Tigre, back) ||
+            HasNeighborSpecies(Species.Tigre, backLeft) || HasNeighborSpecies(Species.Tigre, backRight);
+        bool hasElefante = HasNeighborSpecies(Species.Elefante, left) || HasNeighborSpecies(Species.Elefante, right) || HasNeighborSpecies(Species.Elefante, front) ||
+            HasNeighborSpecies(Species.Elefante, frontLeft) || HasNeighborSpecies(Species.Elefante, frontRight) || HasNeighborSpecies(Species.Elefante, back) ||
+            HasNeighborSpecies(Species.Elefante, backLeft) || HasNeighborSpecies(Species.Elefante, backRight);
+        bool hasCebra = HasNeighborSpecies(Species.Cebra, left) || HasNeighborSpecies(Species.Cebra, right) || HasNeighborSpecies(Species.Cebra, front) ||
+            HasNeighborSpecies(Species.Cebra, frontLeft) || HasNeighborSpecies(Species.Cebra, frontRight) || HasNeighborSpecies(Species.Cebra, back) ||
+            HasNeighborSpecies(Species.Cebra, backLeft) || HasNeighborSpecies(Species.Cebra, backRight);
+        bool hasRaton = HasNeighborSpecies(Species.Raton, left) || HasNeighborSpecies(Species.Raton, right) || HasNeighborSpecies(Species.Raton, front) ||
+            HasNeighborSpecies(Species.Raton, frontLeft) || HasNeighborSpecies(Species.Raton, frontRight) || HasNeighborSpecies(Species.Raton, back) ||
+            HasNeighborSpecies(Species.Raton, backLeft) || HasNeighborSpecies(Species.Raton, backRight);
+
+        Debug.Log($"[Camaleon] vecinos -> Tigre:{hasTiger} Elefante:{hasElefante} Cebra:{hasCebra} Raton:{hasRaton}");
+
+        if (hasTiger) return Species.Tigre;
+        if (hasElefante) return Species.Elefante;
+        if (hasCebra) return Species.Cebra;
+        if (hasRaton) return Species.Raton;
+        return Species.Camaleon;
     }
 }

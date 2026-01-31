@@ -39,7 +39,7 @@ public class Seat : MonoBehaviour
             previous.CurrentSeat = null;
         }
 
-        if (previous != null && previous.species == Species.Elefante)
+        if (previous != null && (previous.species == Species.Elefante || (previous.species == Species.Camaleon && previous.actsAsElefante)))
         {
             if (leftNeighbor != null) leftNeighbor.ClearBlockIfBy(previous);
             if (rightNeighbor != null) rightNeighbor.ClearBlockIfBy(previous);
@@ -52,7 +52,8 @@ public class Seat : MonoBehaviour
             npc.CurrentSeat = this;
         }
 
-        if (npc != null && npc.species == Species.Elefante)
+        // Si quien se sienta es un elefante o un camaleón que actúa como elefante, bloquear los asientos laterales
+        if (npc != null && (npc.species == Species.Elefante || (npc.species == Species.Camaleon && npc.actsAsElefante)))
         {
             if (leftNeighbor != null) leftNeighbor.SetBlockedBy(npc);
             if (rightNeighbor != null) rightNeighbor.SetBlockedBy(npc);
@@ -65,8 +66,7 @@ public class Seat : MonoBehaviour
     {
         if (occupant != null)
         {
-
-            if (occupant.species == Species.Elefante)
+            if (occupant.species == Species.Elefante || (occupant.species == Species.Camaleon && occupant.actsAsElefante))
             {
                 if (leftNeighbor != null) leftNeighbor.ClearBlockIfBy(occupant);
                 if (rightNeighbor != null) rightNeighbor.ClearBlockIfBy(occupant);
