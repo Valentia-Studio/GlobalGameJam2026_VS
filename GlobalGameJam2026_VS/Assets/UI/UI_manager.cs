@@ -14,10 +14,6 @@ public class UI_manager : MonoBehaviour
     public void LoadPropertyFunction(string function)
     {
         Apagar();
-        //if (function == "Play")
-        //{
-        //    Play();
-        //}
         if (function == "Exit")
         {
             Quite();
@@ -30,15 +26,13 @@ public class UI_manager : MonoBehaviour
         {
             Modos();
         }
-        else if(function == "Options")
+        else if (function == "Options")
         {
             Options();
         }
-
-         
     }
 
-    public void Apagar ()
+    public void Apagar()
     {
         quite.SetActive(false);
         creditos.SetActive(false);
@@ -87,7 +81,7 @@ public class UI_manager : MonoBehaviour
     public void RandomScene()
     {
         int randomScene = Random.Range(1, 4);
-        switch(randomScene)
+        switch (randomScene)
         {
             case 1:
                 Play("Fase1");
