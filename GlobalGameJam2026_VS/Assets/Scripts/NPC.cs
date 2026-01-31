@@ -16,11 +16,16 @@ public class NPC : MonoBehaviour
     public Material canSitMaterial;
     public Material cannotSitMaterial;
 
+    public GameObject canSitParticlesPrefab;
+    public GameObject cannotSitParticlesPrefab;
+
     public Seat CurrentSeat;
 
     public Seat assignedSeat;
 
     public bool actsAsElefante;
+
+    private Material _lastAppliedMaterial;
 
     public void EvaluateNeighbors()
     {
@@ -123,8 +128,28 @@ public class NPC : MonoBehaviour
         var rend = GetComponent<MeshRenderer>();
         if (rend != null)
         {
-            rend.material = canSit ? canSitMaterial : cannotSitMaterial;
+            var newMat = canSit ? canSitMaterial : cannotSitMaterial;
+            if (rend.material != newMat)
+            {
+                rend.material = newMat;
+                _lastAppliedMaterial = newMat;
+                SpawnParticlesForMaterial(newMat);
+            }
+            else if (_lastAppliedMaterial == null)
+            {
+                _lastAppliedMaterial = newMat;
+            }
         }
+    }
+
+    private void SpawnParticlesForMaterial(Material mat)
+    {
+        GameObject prefab = (mat == canSitMaterial) ? canSitParticlesPrefab : cannotSitParticlesPrefab;
+        if (prefab == null) return;
+
+        var position = transform.position + Vector3.up * 1.5f;
+        var instance = Instantiate(prefab, position, Quaternion.identity);
+        Destroy(instance, 5f);
     }
 
     public Species GetChameleonEffectiveSpeciesForSeat(Seat seat)
