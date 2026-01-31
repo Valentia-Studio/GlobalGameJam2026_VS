@@ -13,5 +13,11 @@ public class SectionTrigger : MonoBehaviour
                 SectionManager.Instance.SpawnNextSection();
             }
         }
+
+        if (other.gameObject.CompareTag("Station_Stop"))
+        {
+            SectionManager.Instance.StopAllSections();
+        }
+
     }
 }
