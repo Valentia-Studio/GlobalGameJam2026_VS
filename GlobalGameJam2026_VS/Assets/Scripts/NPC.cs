@@ -17,55 +17,82 @@ public class NPC : MonoBehaviour
 
     public Seat CurrentSeat;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-    }
+    public Seat assignedSeat;
 
     public void EvaluateNeighbors()
     {
-        bool canLeft = EvaluateWithSeat(CurrentSeat != null ? CurrentSeat.leftNeighbor : null);
-        bool canRight = EvaluateWithSeat(CurrentSeat != null ? CurrentSeat.rightNeighbor : null);
+        bool canSit = true;
 
-        bool canSit = canLeft && canRight;
+        if (CurrentSeat != null)
+        {
+            var left = CurrentSeat.leftNeighbor;
+            var right = CurrentSeat.rightNeighbor;
+            var front = CurrentSeat.frontNeighbor;
+            var frontLeft = CurrentSeat.frontLeftNeighbor;
+            var frontRight = CurrentSeat.frontRightNeighbor;
+            var back = CurrentSeat.backNeighbor;
+            var backLeft = CurrentSeat.backLeftNeighbor;
+            var backRight = CurrentSeat.backRightNeighbor;
+
+            switch (species)
+            {
+                case Species.Elefante:
+                    if ((left != null && left.occupant != null) || (right != null && right.occupant != null))
+                    {
+                        canSit = false;
+                        break;
+                    }
+                    if ((front != null && front.occupant != null && front.occupant.species == Species.Raton) ||
+                        (frontLeft != null && frontLeft.occupant != null && frontLeft.occupant.species == Species.Raton) ||
+                        (frontRight != null && frontRight.occupant != null && frontRight.occupant.species == Species.Raton))
+                    {
+                        canSit = false;
+                    }
+                    break;
+
+                case Species.Raton:
+                    bool leftHasTiger = left != null && left.occupant != null && left.occupant.species == Species.Tigre;
+                    bool rightHasTiger = right != null && right.occupant != null && right.occupant.species == Species.Tigre;
+                    canSit = !(leftHasTiger || rightHasTiger);
+                    break;
+
+                case Species.Cebra:
+                    bool leftTiger = left != null && left.occupant != null && left.occupant.species == Species.Tigre;
+                    bool rightTiger = right != null && right.occupant != null && right.occupant.species == Species.Tigre;
+                    bool frontTiger = front != null && front.occupant != null && front.occupant.species == Species.Tigre;
+                    canSit = !(leftTiger || rightTiger || frontTiger);
+                    break;
+
+                case Species.Tigre:
+                    bool leftBad = left != null && left.occupant != null && (left.occupant.species == Species.Raton || left.occupant.species == Species.Cebra);
+                    bool rightBad = right != null && right.occupant != null && (right.occupant.species == Species.Raton || right.occupant.species == Species.Cebra);
+                    bool frontBad = front != null && front.occupant != null && (front.occupant.species == Species.Raton || front.occupant.species == Species.Cebra);
+                    canSit = !(leftBad || rightBad || frontBad);
+                    break;
+
+                case Species.Buho:
+                    bool anyOccupied =
+                        (left != null && left.occupant != null) ||
+                        (right != null && right.occupant != null) ||
+                        (front != null && front.occupant != null) ||
+                        (frontLeft != null && frontLeft.occupant != null) ||
+                        (frontRight != null && frontRight.occupant != null) ||
+                        (back != null && back.occupant != null) ||
+                        (backLeft != null && backLeft.occupant != null) ||
+                        (backRight != null && backRight.occupant != null);
+                    canSit = !anyOccupied;
+                    break;
+
+                default:
+                    canSit = true;
+                    break;
+            }
+        }
+
         var rend = GetComponent<MeshRenderer>();
         if (rend != null)
         {
             rend.material = canSit ? canSitMaterial : cannotSitMaterial;
-        }
-    }
-
-    private bool EvaluateWithSeat(Seat seat)
-    {
-        if (seat == null || seat.occupant == null)
-            return true;
-        return CanSitNextTo(seat.occupant.species);
-    }
-
-    private bool CanSitNextTo(Species other)
-    {
-        switch (species)
-        {
-            case Species.Elefante:
-                if (other == Species.Raton) return false;
-                return other == Species.Tigre || other == Species.Cebra;
-            case Species.Tigre:
-                if (other == Species.Raton) return false;
-                return other == Species.Elefante || other == Species.Cebra;
-            case Species.Raton:
-                if (other == Species.Tigre || other == Species.Elefante) return false;
-                return other == Species.Cebra;
-            case Species.Cebra:
-                if (other == Species.Tigre) return false;
-                return other == Species.Elefante || other == Species.Raton;
-            case Species.Buho:
-                // Buho no quiere sentarse con nadie
-                return false;
-            default:
-                return false;
         }
     }
 }

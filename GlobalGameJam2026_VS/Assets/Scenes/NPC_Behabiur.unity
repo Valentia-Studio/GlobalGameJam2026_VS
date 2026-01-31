@@ -414,7 +414,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &276569757
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +581,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +1006,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 836222950}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &454705072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1296,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &527300396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1430,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &529751201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1752,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &815638370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1886,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,7 +2069,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 435870620}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &910060319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,7 +2203,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &919529370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,7 +2423,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1035233891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,7 +2900,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1168628032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,7 +3034,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1217132290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,7 +3202,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1284736903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,7 +3425,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &1295915625
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,7 +3559,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &1315409976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,7 +3967,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 1432347071}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 1836629936}
+  frontLeftNeighbor: {fileID: 1800910691}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &1424043921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3974,7 +4134,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 1389010043}
+  frontNeighbor: {fileID: 1800910691}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 1836629936}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &1563682064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,7 +4355,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1685799000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,9 +4520,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35909dc963f569144bb4647ba3cc4b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftNeighbor: {fileID: 1836629936}
+  leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 1836629936}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 1432347071}
+  backLeftNeighbor: {fileID: 1389010043}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &1836629931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,8 +4655,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 1800910691}
-  rightNeighbor: {fileID: 1800910691}
+  rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 1389010043}
+  backLeftNeighbor: {fileID: 1432347071}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: 4db2e7a0463eb2b4db2e79565a84590a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 35d4d7613c1d74d45916b1fdcac58f6f, type: 2}
 --- !u!1 &1849719902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4623,7 +4823,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1880893655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,7 +5066,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &1984698315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4980,7 +5200,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &2045031795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,7 +5334,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
   occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1 &2070962125
 GameObject:
   m_ObjectHideFlags: 0
