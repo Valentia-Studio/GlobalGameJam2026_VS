@@ -33,9 +33,10 @@ public class DragDrop : MonoBehaviour
 
     private void StartDrag(GameObject gameObject)
     {
+
         holdingGameObject = gameObject;
         holdingGameObject.GetComponent<Rigidbody>().isKinematic = true;
-        
+
         holdingGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Grab", true);
         holdingGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Sit", false);
         
@@ -99,6 +100,7 @@ public class DragDrop : MonoBehaviour
                     }
 
                     seat.SetOccupant(npc);
+                    
                     if (!seat.transform.name.Contains("Stay"))npc.transform.GetChild(0).GetComponent<Animator>().SetBool("Sit", true);
 
                     if (npc.species == Species.Elefante || (npc.species == Species.Camaleon && npc.actsAsElefante))
