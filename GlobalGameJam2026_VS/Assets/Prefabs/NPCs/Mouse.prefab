@@ -157,6 +157,8 @@ MonoBehaviour:
   species: 2
   canSitMaterial: {fileID: 2100000, guid: b8432fea1b50ac941b7f316e8e2bf536, type: 2}
   cannotSitMaterial: {fileID: 2100000, guid: b88ed9bd3f76d9345af6c2422664e703, type: 2}
+  canSitParticlesPrefab: {fileID: 0}
+  cannotSitParticlesPrefab: {fileID: 0}
   CurrentSeat: {fileID: 0}
   assignedSeat: {fileID: 0}
   actsAsElefante: 0
@@ -217,19 +219,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -237,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
