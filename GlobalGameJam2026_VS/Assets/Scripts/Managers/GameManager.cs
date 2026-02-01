@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     {
         InitialState,
         OnTrack,
-        OnStopped
+        OnStopped,
+        LevelEnding
     }
 
     public GameState currentState = GameState.InitialState;
@@ -29,15 +30,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
         GenerateTrainOrder();
         SpawnTrain();
+        ShowStartButton();
     }
 
     private void Update()
     {
-        if (currentState == GameState.InitialState && Input.GetKeyDown(KeyCode.E))
-        {
-            StartGame();
-        }
-
         if (currentState == GameState.OnStopped && isFullyStopped && Input.GetKeyDown(KeyCode.Q))
         {
             ResumeGame();
@@ -72,7 +69,7 @@ public class GameManager : MonoBehaviour
         currentTrain = Instantiate(trainPrefabs[trainOrder[trainIndex]]);
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         currentState = GameState.OnTrack;
         SectionManager.Instance.StartMovement();
@@ -80,17 +77,20 @@ public class GameManager : MonoBehaviour
 
     private void ResumeGame()
     {
-        currentState = GameState.OnTrack;
-        isFullyStopped = false;
         stationsVisited++;
 
         if (stationsVisited >= stationsPerLevel)
         {
+            currentState = GameState.LevelEnding;
+            isFullyStopped = false;
             SectionManager.Instance.ResumeMovement();
+            SectionManager.Instance.StopSpawningStations();
             Invoke(nameof(EndLevel), levelEndDelay);
         }
         else
         {
+            currentState = GameState.OnTrack;
+            isFullyStopped = false;
             SectionManager.Instance.ResumeMovement();
         }
     }
@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     private void EndLevel()
     {
+        SectionManager.Instance.StopAllSections();
         currentLevel++;
 
         if (FadeManager.Instance != null)
@@ -139,22 +140,32 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        ResetForNextLevel();
+
+        if (FadeManager.Instance != null)
+        {
+            FadeManager.Instance.FadeOut(() => { });
+        }
+    }
+
+    private void ResetForNextLevel()
+    {
         trainIndex++;
         stationsVisited = 0;
         currentState = GameState.InitialState;
         isFullyStopped = false;
 
-        if (FadeManager.Instance != null)
+        SectionManager.Instance.ResetForNewLevel();
+        SpawnTrain();
+
+        ShowStartButton();
+    }
+
+    private void ShowStartButton()
+    {
+        if (UIController.Instance != null)
         {
-            FadeManager.Instance.FadeOut(() => {
-                SectionManager.Instance.ResetForNewLevel();
-                SpawnTrain();
-            });
-        }
-        else
-        {
-            SectionManager.Instance.ResetForNewLevel();
-            SpawnTrain();
+            UIController.Instance.ShowStartButton();
         }
     }
 
@@ -164,10 +175,6 @@ public class GameManager : MonoBehaviour
         {
             UIController.Instance.ShowLevelComplete(currentLevel - 1);
         }
-        else
-        {
-            Debug.Log("Level " + (currentLevel - 1) + " Complete! Press N to continue to next level");
-        }
     }
 
     private void ShowGameComplete()
@@ -175,10 +182,6 @@ public class GameManager : MonoBehaviour
         if (UIController.Instance != null)
         {
             UIController.Instance.ShowGameComplete();
-        }
-        else
-        {
-            Debug.Log("Game Complete! All levels finished!");
         }
     }
 }

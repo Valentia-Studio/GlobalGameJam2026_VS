@@ -18,6 +18,7 @@ public class SectionManager : MonoBehaviour
     private Section lastSection;
     private float timer;
     private bool stationSpawned = false;
+    private bool canSpawnStations = true;
     private float smoothTimer = 0f;
     private float startSpeed;
     private float targetSpeed;
@@ -33,16 +34,28 @@ public class SectionManager : MonoBehaviour
 
     private void Start()
     {
-        Transform spawnPoint = firstSpawnPosition;
+        SpawnInitialSections();
+    }
 
-        for (int i = 0; i < initialSectionsCount; i++)
+    private void SpawnInitialSections()
+    {
+        GameObject firstSection = Instantiate(GetRandomSection(), Vector3.zero, Quaternion.identity);
+        lastSection = firstSection.GetComponent<Section>();
+
+        if (lastSection != null && lastSection.nextSection_SpawnPosition != null)
         {
-            GameObject newSection = Instantiate(GetRandomSection(), spawnPoint.position, Quaternion.identity);
-            lastSection = newSection.GetComponent<Section>();
+            Vector3 currentSpawnPos = lastSection.nextSection_SpawnPosition.position;
 
-            if (lastSection != null && lastSection.nextSection_SpawnPosition != null)
+            for (int i = 1; i < initialSectionsCount; i++)
             {
-                spawnPoint = lastSection.nextSection_SpawnPosition;
+                GameObject newSection = Instantiate(GetRandomSection(), currentSpawnPos, Quaternion.identity);
+                Section sectionComp = newSection.GetComponent<Section>();
+
+                if (sectionComp != null && sectionComp.nextSection_SpawnPosition != null)
+                {
+                    currentSpawnPos = sectionComp.nextSection_SpawnPosition.position;
+                    lastSection = sectionComp;
+                }
             }
         }
 
@@ -75,7 +88,7 @@ public class SectionManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer <= 0f && !stationSpawned)
+            if (timer <= 0f && !stationSpawned && canSpawnStations)
             {
                 SpawnStation();
                 stationSpawned = true;
@@ -95,14 +108,13 @@ public class SectionManager : MonoBehaviour
         stationSpawned = false;
     }
 
+    public void StopSpawningStations()
+    {
+        canSpawnStations = false;
+    }
+
     public void ResetForNewLevel()
     {
-        print("New Level");
-        if (firstSpawnPosition == null) return;
-
-        Vector3 savedSpawnPosition = firstSpawnPosition.position;
-        Quaternion savedSpawnRotation = firstSpawnPosition.rotation;
-
         Section[] allSections = FindObjectsByType<Section>(FindObjectsSortMode.None);
         foreach (Section section in allSections)
         {
@@ -117,27 +129,9 @@ public class SectionManager : MonoBehaviour
         smoothTimer = 0f;
         timer = stationSpawnTime;
         stationSpawned = false;
+        canSpawnStations = true;
 
-        Invoke(nameof(DelayedSpawnInitialSections), 0.1f);
-    }
-
-    private void DelayedSpawnInitialSections()
-    {
-        if (firstSpawnPosition == null) return;
-
-        Transform spawnPoint = firstSpawnPosition;
-
-        for (int i = 0; i < initialSectionsCount; i++)
-        {
-            GameObject newSection = Instantiate(GetRandomSection(), spawnPoint.position, Quaternion.identity);
-            Section sectionComponent = newSection.GetComponent<Section>();
-
-            if (sectionComponent != null && sectionComponent.nextSection_SpawnPosition != null)
-            {
-                spawnPoint = sectionComponent.nextSection_SpawnPosition;
-                lastSection = sectionComponent;
-            }
-        }
+        SpawnInitialSections();
     }
 
     public void SpawnNextSection()
