@@ -54,6 +54,9 @@ public class Seat : MonoBehaviour
             if (npc.species == Species.Camaleon)
             {
                 var effective = npc.GetChameleonEffectiveSpeciesForSeat(this);
+
+               
+                                   
                 npc.actsAsElefante = (effective == Species.Elefante);
             }
         }

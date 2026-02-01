@@ -1121,6 +1121,8 @@ Transform:
   - {fileID: 1122072818}
   - {fileID: 1357799078}
   - {fileID: 780790305}
+  - {fileID: 1163998682}
+  - {fileID: 1996576904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &435796332
@@ -1617,7 +1619,7 @@ Transform:
   m_GameObject: {fileID: 630649208}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0490742, y: -18.336834, z: 13.188736}
+  m_LocalPosition: {x: -2.97, y: -18.336834, z: 10.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1782,7 +1784,7 @@ Transform:
   m_GameObject: {fileID: 780790304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.801, y: 1.213, z: -2.1880002}
+  m_LocalPosition: {x: 1.55, y: 1.213, z: -2.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2584,6 +2586,8 @@ MonoBehaviour:
   - {fileID: 1122072817}
   - {fileID: 1357799077}
   - {fileID: 780790304}
+  - {fileID: 1163998681}
+  - {fileID: 1996576903}
   currentQueueGoal: 0
 --- !u!1 &1102043583
 GameObject:
@@ -2643,7 +2647,7 @@ Transform:
   m_GameObject: {fileID: 1122072817}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.213, z: -2.1880002}
+  m_LocalPosition: {x: 0, y: 1.213, z: -1.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2783,6 +2787,37 @@ MonoBehaviour:
   blockedBy: {fileID: 0}
   blockedSeatMaterial: {fileID: 0}
   defaultSeatMaterial: {fileID: 0}
+--- !u!1 &1163998681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163998682}
+  m_Layer: 0
+  m_Name: 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1163998682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163998681}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.09, y: 1.213, z: -2.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 434447181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168628032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,7 +3621,7 @@ Transform:
   m_GameObject: {fileID: 1357799077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.85, y: 1.213, z: -2.1880002}
+  m_LocalPosition: {x: -0.07, y: 1.213, z: -2.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5139,6 +5174,37 @@ MonoBehaviour:
   blockedBy: {fileID: 0}
   blockedSeatMaterial: {fileID: 0}
   defaultSeatMaterial: {fileID: 0}
+--- !u!1 &1996576903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1996576904}
+  m_Layer: 0
+  m_Name: 6
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1996576904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996576903}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.27, y: 1.213, z: -2.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 434447181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003394220
 GameObject:
   m_ObjectHideFlags: 0

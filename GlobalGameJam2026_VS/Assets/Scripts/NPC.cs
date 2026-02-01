@@ -46,6 +46,22 @@ public class NPC : MonoBehaviour
                 ? GetChameleonEffectiveSpecies(left, right, front, frontLeft, frontRight, back, backLeft, backRight)
                 : species;
 
+            if (species == Species.Camaleon)
+            {
+                var animator = GetComponentInChildren<Animator>();
+
+                if (animator != null)
+                {
+                    animator.SetBool("Elephant", speciesToEvaluate==Species.Elefante);
+                    animator.SetBool("Mouse", speciesToEvaluate==Species.Raton);
+                    animator.SetBool("Tiger", speciesToEvaluate==Species.Tigre);
+                    animator.SetBool("Zebra", speciesToEvaluate==Species.Cebra);
+
+                    if (speciesToEvaluate==Species.Camaleon || speciesToEvaluate==Species.Buho) animator.SetBool("Zebra", true);
+                }
+
+             }
+
             bool prevActsAsElefante = actsAsElefante;
             actsAsElefante = species == Species.Camaleon && speciesToEvaluate == Species.Elefante;
 
@@ -123,6 +139,9 @@ public class NPC : MonoBehaviour
                     canSit = true;
                     break;
             }
+
+
+
         }
 
         var rend = GetComponent<MeshRenderer>();
