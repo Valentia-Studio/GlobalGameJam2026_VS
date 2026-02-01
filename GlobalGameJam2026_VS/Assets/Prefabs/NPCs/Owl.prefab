@@ -241,6 +241,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1149031426324429568, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+<<<<<<< Updated upstream
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
@@ -248,6 +249,31 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+=======
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1149031426324429568, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
+    - target: {fileID: -1149031426324429568, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: caad13fb60e8c7145bc3ce354b617341, type: 2}
+    - target: {fileID: -678588488315902003, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -678588488315902003, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
+    - target: {fileID: -678588488315902003, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: -5605289326131794027, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
+>>>>>>> Stashed changes
     - target: {fileID: 919132149155446097, guid: cb4bce67d74651a4395869811b41a7a8, type: 3}
       propertyPath: m_Name
       value: Mascara_Buho
@@ -330,6 +356,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yuji Itadori
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 3690925339041585943, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -350,6 +377,20 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 5445658935736990897, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445658935736990897, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
+    - target: {fileID: 5445658935736990897, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 62b91c7f2565f1d4283d2d1fc9fd50ec, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
