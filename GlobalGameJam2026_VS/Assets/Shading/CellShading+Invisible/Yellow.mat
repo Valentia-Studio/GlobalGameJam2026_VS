@@ -58,7 +58,7 @@ Material:
     - _CanSeeThrough: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SeeThroughDistance: 0.25
+    - _SeeThroughDistance: 1
     m_Colors:
     - _Color: {r: 0.88235295, g: 0.69411767, b: 0.39607844, a: 0}
   m_BuildTextureStacks: []

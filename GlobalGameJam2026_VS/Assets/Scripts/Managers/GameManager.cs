@@ -80,6 +80,9 @@ public class GameManager : MonoBehaviour
     {
         stationsVisited++;
 
+        FadeBehaviour.instance.StopSeeThrough();
+
+        currentTrain.AddComponent<Rigidbody>();
         if (stationsVisited >= stationsPerLevel)
         {
             currentState = GameState.LevelEnding;
@@ -117,6 +120,11 @@ public class GameManager : MonoBehaviour
 
     private void SetFullyStopped()
     {
+
+        Debug.Log("PAAAAAARA");
+
+        FadeBehaviour.instance.SeeThrough();
+        Destroy(currentTrain.GetComponent<Rigidbody>());
         isFullyStopped = true;
     }
 

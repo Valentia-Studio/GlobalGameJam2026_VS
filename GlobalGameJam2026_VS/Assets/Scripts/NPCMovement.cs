@@ -14,9 +14,12 @@ public class NPCMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (moving) Move();
+        GoTo(GOAL);
 
         if (GOAL != null && Vector3.Distance(gameObject.transform.position, GOAL.transform.position)< .5f)
         {
+
+
             gameObject.transform.LookAt(new Vector3(Camera.main.transform.position.x, gameObject.transform.position.y, Camera.main.transform.position.z));
             transform.GetChild(0).GetComponent<Animator>().SetBool("Walk", false);
             gameObject.layer = LayerMask.NameToLayer("Grabbable");

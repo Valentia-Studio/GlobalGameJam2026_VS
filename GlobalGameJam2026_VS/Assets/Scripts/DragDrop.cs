@@ -82,6 +82,9 @@ public class DragDrop : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 100, seatLayer))
         {
+
+            Debug.Log(hit.transform.gameObject.name);
+
             var seat = hit.transform.GetComponent<Seat>();
             if (seat != null && npc != null)
             {
