@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Procedural_Environment.unity
     guid: 7c260a73faaab6142a06f61ae9204b69
+  - enabled: 1
+    path: Assets/Scenes/SoundScene.unity
+    guid: f7e93f44581cd5a4983da3761f6202c7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
