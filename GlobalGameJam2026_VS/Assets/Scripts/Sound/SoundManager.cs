@@ -6,9 +6,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     AudioSource soundSource, musicSource;
 
-
+    
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
             instance = this;
@@ -50,6 +51,19 @@ public class SoundManager : MonoBehaviour
     {
         musicSource.volume = .5f;
         musicSource.Play();
+    }
+
+    public void PlayRepetitive(AudioClip sound)
+    {
+        soundSource.loop = true;
+        soundSource.clip = sound;
+        soundSource.Play();
+    }
+
+    public void StopRepetitive()
+    {
+        soundSource.Stop();
+        soundSource.loop = false;
     }
 
 }

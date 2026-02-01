@@ -37,6 +37,8 @@ public class DragDrop : MonoBehaviour
         holdingGameObject = gameObject;
         holdingGameObject.GetComponent<Rigidbody>().isKinematic = true;
 
+        SoundManager.instance.PlayRepetitive(SoundList.instance.grabPeople);
+
         holdingGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Grab", true);
         holdingGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Sit", false);
         
@@ -70,6 +72,7 @@ public class DragDrop : MonoBehaviour
     void Drop()
     {
 
+        SoundManager.instance.StopRepetitive();
         Cursor.visible = true;
         shadow.SetActive(false);
 

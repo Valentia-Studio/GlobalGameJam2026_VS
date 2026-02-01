@@ -13,8 +13,11 @@ public class AudioManager : MonoBehaviour
         musicSlider.onValueChanged.AddListener(SetVolume);
         efectSlider.onValueChanged.AddListener(SetEfectVolume);
 
-        efectSlider.value = PlayerPrefs.GetFloat("efxVol", 0.75f);
-        musicSlider.value = PlayerPrefs.GetFloat("SoundsVol", 0.75f);
+        efectSlider.value = PlayerPrefs.GetFloat("efxVol");
+        musicSlider.value = PlayerPrefs.GetFloat("SoundsVol");
+
+        Mixer.SetFloat("SoundsVol", Mathf.Log10(musicSlider.value + 0.001f) * 20);
+        Mixer.SetFloat("efxVol", Mathf.Log10(efectSlider.value + 0.001f) * 20);
     }
 
     // Update is called once per frame
@@ -27,10 +30,12 @@ public class AudioManager : MonoBehaviour
     public void SetVolume(float volume)
     {
         Mixer.SetFloat("SoundsVol", Mathf.Log10(musicSlider.value +0.001f) * 20);
+        PlayerPrefs.SetFloat("SoundsVol", musicSlider.value);
     }
 
     public void SetEfectVolume(float volume)
     {
         Mixer.SetFloat("efxVol", Mathf.Log10(efectSlider.value + 0.001f) * 20);
+        PlayerPrefs.SetFloat("efxVol", efectSlider.value);
     }
 }

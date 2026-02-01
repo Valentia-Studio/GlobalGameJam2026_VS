@@ -58,6 +58,9 @@ public class NPC : MonoBehaviour
                     animator.SetBool("Zebra", speciesToEvaluate==Species.Cebra);
 
                     if (speciesToEvaluate==Species.Camaleon || speciesToEvaluate==Species.Buho) animator.SetBool("Zebra", true);
+
+                    SoundManager.instance.PlaySound(SoundList.instance.chameleon_Transform);
+
                 }
 
              }
@@ -84,6 +87,9 @@ public class NPC : MonoBehaviour
             switch (speciesToEvaluate)
             {
                 case Species.Elefante:
+
+                    SoundManager.instance.PlaySound(SoundList.instance.elephant);
+
                     bool sideOccupied = (left != null && left.occupant != null) || (right != null && right.occupant != null);
                     bool mouseInFront =
                         (front != null && front.occupant != null && front.occupant.species == Species.Raton) ||
@@ -94,6 +100,9 @@ public class NPC : MonoBehaviour
                     break;
 
                 case Species.Raton:
+
+                    SoundManager.instance.PlaySound(SoundList.instance.mouse);
+
                     bool leftHasTiger = left != null && left.occupant != null && left.occupant.species == Species.Tigre;
                     bool rightHasTiger = right != null && right.occupant != null && right.occupant.species == Species.Tigre;
                     canSit = !(leftHasTiger || rightHasTiger);
@@ -101,6 +110,9 @@ public class NPC : MonoBehaviour
                     break;
 
                 case Species.Cebra:
+
+                    SoundManager.instance.PlaySound(SoundList.instance.zebra);
+
                     bool leftTiger = left != null && left.occupant != null && left.occupant.species == Species.Tigre;
                     bool rightTiger = right != null && right.occupant != null && right.occupant.species == Species.Tigre;
                     bool frontTiger = front != null && front.occupant != null && front.occupant.species == Species.Tigre;
@@ -109,6 +121,9 @@ public class NPC : MonoBehaviour
                     break;
 
                 case Species.Tigre:
+
+                    SoundManager.instance.PlaySound(SoundList.instance.tiger);
+
                     bool leftBad = left != null && left.occupant != null && (left.occupant.species == Species.Raton || left.occupant.species == Species.Cebra);
                     bool rightBad = right != null && right.occupant != null && (right.occupant.species == Species.Raton || right.occupant.species == Species.Cebra);
                     bool frontBad = front != null && front.occupant != null && (front.occupant.species == Species.Raton || front.occupant.species == Species.Cebra);
@@ -117,6 +132,9 @@ public class NPC : MonoBehaviour
                     break;
 
                 case Species.Buho:
+
+                    SoundManager.instance.PlaySound(SoundList.instance.owl);
+
                     bool anyOccupied =
                         (left != null && left.occupant != null) ||
                         (right != null && right.occupant != null) ||
@@ -131,6 +149,8 @@ public class NPC : MonoBehaviour
                     break;
 
                 case Species.Camaleon:
+                    SoundManager.instance.PlaySound(SoundList.instance.chameleon_Transform);
+
                     canSit = true;
                     Debug.Log("[Camaleon] sin vecinos relevantes, sin restricciones.");
                     break;

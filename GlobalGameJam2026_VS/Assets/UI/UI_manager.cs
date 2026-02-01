@@ -71,6 +71,7 @@ public class UI_manager : MonoBehaviour
 
     public void Play(string scene)
     {
+        SoundManager.instance.PlayMusic(SoundList.instance.inGameMusic);
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
     }
 

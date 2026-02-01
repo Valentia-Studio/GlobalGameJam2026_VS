@@ -59,7 +59,10 @@ public class PauseMenu : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
     }
 
-
+    public void GoToMainMenu()
+    {
+        SoundManager.instance.PlayMusic(SoundList.instance.menuMusic);
+    }
 
 
     public void Options()
