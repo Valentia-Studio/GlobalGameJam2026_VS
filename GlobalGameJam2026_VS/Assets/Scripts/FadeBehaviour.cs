@@ -4,8 +4,22 @@ using System.Collections;
 public class FadeBehaviour : MonoBehaviour
 {
 
-    [SerializeField] Material fadeMat;
+    public static FadeBehaviour instance;
+
+    [SerializeField] Material[] fadeMat;
     [SerializeField] float speed;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -17,8 +31,12 @@ public class FadeBehaviour : MonoBehaviour
     /// </summary>
     public void ResetParameters()
     {
-        fadeMat.SetFloat("_CanSeeThrough", 0);
-        fadeMat.SetFloat("_SeeThroughDistance", 1);
+        foreach (Material mat in fadeMat)
+        {
+            mat.SetFloat("_CanSeeThrough", 0);
+            mat.SetFloat("_SeeThroughDistance", 1);
+        }
+
     }
 
     /// <summary>
@@ -39,21 +57,34 @@ public class FadeBehaviour : MonoBehaviour
 
     IEnumerator SeeThroughTimer()
     {
-        while (fadeMat.GetFloat("_SeeThroughDistance") > 0)
+        StopCoroutine(StopSeeThroughTimer());
+
+        foreach (Material mat in fadeMat)
         {
-            fadeMat.SetFloat("_SeeThroughDistance", fadeMat.GetFloat("_SeeThroughDistance") - Time.deltaTime * speed);
-            yield return new WaitForSeconds(.1f / speed);
+            while (mat.GetFloat("_SeeThroughDistance") > 0)
+            {
+                mat.SetFloat("_SeeThroughDistance", mat.GetFloat("_SeeThroughDistance") - Time.deltaTime * speed);
+                yield return new WaitForSeconds(.1f / speed);
+            }
+
         }
 
         StopCoroutine(SeeThroughTimer());
     }
     IEnumerator StopSeeThroughTimer()
     {
-        while (fadeMat.GetFloat("_SeeThroughDistance") < 1)
+        StopCoroutine(SeeThroughTimer());
+
+
+        foreach (Material mat in fadeMat)
         {
-            fadeMat.SetFloat("_SeeThroughDistance", fadeMat.GetFloat("_SeeThroughDistance") + Time.deltaTime * speed);
-            yield return new WaitForSeconds(.1f / speed);
+            while (mat.GetFloat("_SeeThroughDistance") < 1)
+            {
+                mat.SetFloat("_SeeThroughDistance", mat.GetFloat("_SeeThroughDistance") + Time.deltaTime * speed);
+                yield return new WaitForSeconds(.1f / speed);
+            }
         }
+
         StopCoroutine(StopSeeThroughTimer());
     }
 
