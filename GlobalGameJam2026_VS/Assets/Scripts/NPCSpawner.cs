@@ -78,4 +78,19 @@ public class NPCSpawner : MonoBehaviour
         }
     }
 
+    public void PurgeUndesiredSeatedNPCs()
+    {
+        var npcs = FindObjectsOfType<NPC>();
+        foreach (var npc in npcs)
+        {
+            if (npc.isInUndesiredSeat)
+            {
+                if (npc.CurrentSeat != null && npc.CurrentSeat.occupant == npc)
+                {
+                    npc.CurrentSeat.ClearOccupant();
+                }
+                Destroy(npc.gameObject);
+            }
+        }
+    }
 }
