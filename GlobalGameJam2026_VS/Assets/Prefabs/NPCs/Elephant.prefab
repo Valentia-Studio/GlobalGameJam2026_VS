@@ -237,7 +237,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1823322365421230674, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-<<<<<<< Updated upstream
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
@@ -245,53 +244,14 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-=======
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1823322365421230674, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
-    - target: {fileID: -1823322365421230674, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 68fc492d12c36d747a4f6c66472b5ee2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1461304994638716399, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
-    - target: {fileID: -1461304994638716399, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 68fc492d12c36d747a4f6c66472b5ee2, type: 2}
->>>>>>> Stashed changes
     - target: {fileID: 919132149155446097, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
       propertyPath: m_Name
       value: Mascara_Elefante
       objectReference: {fileID: 0}
     - target: {fileID: 5205748653313150351, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-<<<<<<< Updated upstream
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-=======
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5205748653313150351, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
-    - target: {fileID: 5205748653313150351, guid: 89cc25bccf0c10d44b8aafc748e9d8d4, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 68fc492d12c36d747a4f6c66472b5ee2, type: 2}
->>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -370,7 +330,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yuji Itadori
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 3690925339041585943, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -391,20 +350,6 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-=======
-    - target: {fileID: 5445658935736990897, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445658935736990897, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 39e03168e37850a468441993f7d02efe, type: 2}
-    - target: {fileID: 5445658935736990897, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 62b91c7f2565f1d4283d2d1fc9fd50ec, type: 2}
->>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
