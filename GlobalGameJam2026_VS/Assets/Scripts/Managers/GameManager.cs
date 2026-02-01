@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour
         SpawnTrain();
         ShowStartButton();
     }
-
+    private void Start()
+    {
+        StartGame();
+    }
     private void Update()
     {
         if (currentState == GameState.OnStopped && isFullyStopped && Input.GetKeyDown(KeyCode.Q))
