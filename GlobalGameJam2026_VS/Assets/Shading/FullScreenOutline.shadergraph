@@ -1178,7 +1178,7 @@
     "m_Title": "border Right",
     "m_Position": {
         "x": -431.0,
-        "y": 334.9999084472656
+        "y": 335.0
     }
 }
 
@@ -2574,7 +2574,7 @@
     "m_ObjectId": "7bdebd4f6fd144338080e5df30ef2652",
     "m_Title": "border down",
     "m_Position": {
-        "x": -572.0003051757813,
+        "x": -572.0,
         "y": 2032.0
     }
 }
@@ -4546,8 +4546,8 @@
     "m_ObjectId": "eeb2ba5e5a854cfeb7cc8ec25bb4e629",
     "m_Title": "border up",
     "m_Position": {
-        "x": -640.000244140625,
-        "y": 1095.9998779296875
+        "x": -640.0,
+        "y": 1096.0
     }
 }
 
