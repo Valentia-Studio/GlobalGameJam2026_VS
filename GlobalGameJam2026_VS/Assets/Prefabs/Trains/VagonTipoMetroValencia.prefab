@@ -378,8 +378,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &572886353802594258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -603,8 +603,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &4361559416518978461
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -812,8 +812,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &4570134791958620363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1132,8 +1132,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &4812997170071883643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1352,8 +1352,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &7470021437213767750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1672,8 +1672,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &1406558804255334742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1807,8 +1807,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &860867887089043122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1942,8 +1942,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &2631695734530398534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2077,8 +2077,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &1361151078614970047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2207,8 +2207,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &2487524519697671054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2342,8 +2342,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &8368054383724484461
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2477,8 +2477,8 @@ MonoBehaviour:
   occupant: {fileID: 0}
   isBlocked: 0
   blockedBy: {fileID: 0}
-  blockedSeatMaterial: {fileID: 0}
-  defaultSeatMaterial: {fileID: 0}
+  blockedSeatMaterial: {fileID: 2100000, guid: fe67304e76452a94ea89d410525dff6a, type: 2}
+  defaultSeatMaterial: {fileID: 2100000, guid: 95b4e57fdb52168488d4875c9f7729a4, type: 2}
 --- !u!65 &1632854710966288612
 BoxCollider:
   m_ObjectHideFlags: 0
