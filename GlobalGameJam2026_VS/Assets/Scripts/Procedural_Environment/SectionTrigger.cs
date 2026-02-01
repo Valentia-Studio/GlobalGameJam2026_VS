@@ -9,11 +9,18 @@ public class SectionTrigger : MonoBehaviour
             Section sectionData = other.GetComponentInParent<Section>();
             if (sectionData != null)
             {
-                if (GameManager.Instance.currentState == GameManager.GameState.OnTrack)
+                // Verificar si es la sección inicial
+                bool isInitialSection = Vector3.Distance(sectionData.transform.position,
+                    Vector3.zero) < 0.1f;
+
+                if (!isInitialSection)
                 {
-                    SectionManager.Instance.SpawnNextSection();
+                    if (GameManager.Instance.currentState == GameManager.GameState.OnTrack)
+                    {
+                        SectionManager.Instance.SpawnNextSection();
+                    }
+                    Destroy(sectionData.gameObject, 1f);
                 }
-                Destroy(sectionData.gameObject, 1f);
             }
         }
 
