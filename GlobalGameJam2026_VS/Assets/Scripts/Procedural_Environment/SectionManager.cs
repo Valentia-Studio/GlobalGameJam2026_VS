@@ -1,27 +1,34 @@
 using UnityEngine;
+using TMPro;
 
 public class SectionManager : MonoBehaviour
 {
     public static SectionManager Instance;
 
-    public GameObject[] roadSections;
-    public GameObject stationPrefab;
-    public Transform firstSpawnPosition;
-    public int initialSectionsCount = 3;
-    public float stationSpawnTime = 30f;
-    public float sectionSpeed = -5f;
+    [SerializeField] GameObject[] roadSections;
+    [SerializeField] GameObject stationPrefab;
+    [SerializeField] Transform firstSpawnPosition;
+    [SerializeField] int initialSectionsCount = 3;
+    [SerializeField] float stationSpawnTime = 30f;
+    [SerializeField] float sectionSpeed = -5f;
     public float stopSmoothTime = 2f;
 
-    [HideInInspector] public bool isStopped = false;
-    [HideInInspector] public float currentSpeed;
+    [HideInInspector] bool isStopped = false;
+    public float currentSpeed;
 
     private Section lastSection;
     private float timer;
-
+    private bool stationSpawned = false;
+    private float smoothTimer = 0f;
+    private float startSpeed;
+    private float targetSpeed;
     private void Awake()
     {
         Instance = this;
-        currentSpeed = sectionSpeed;
+        currentSpeed = 0f;
+        isStopped = true;
+        startSpeed = 0f;
+        targetSpeed = 0f;
     }
 
     private void Start()
@@ -44,17 +51,48 @@ public class SectionManager : MonoBehaviour
 
     private void Update()
     {
-        //Smooth para parar el tren
-        float targetSpeed = isStopped ? 0f : sectionSpeed;
-        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime / stopSmoothTime);
+        float newTargetSpeed = isStopped ? 0f : sectionSpeed;
 
-        timer -= Time.deltaTime;
-
-        if (timer <= 0f)
+        if (newTargetSpeed != targetSpeed)
         {
-            SpawnStation();
-            timer = stationSpawnTime;
+            startSpeed = currentSpeed;
+            targetSpeed = newTargetSpeed;
+            smoothTimer = 0f;
         }
+
+        if (smoothTimer < stopSmoothTime)
+        {
+            smoothTimer += Time.deltaTime;
+            float t = Mathf.Clamp01(smoothTimer / stopSmoothTime);
+            currentSpeed = Mathf.Lerp(startSpeed, targetSpeed, t);
+        }
+        else
+        {
+            currentSpeed = targetSpeed;
+        }
+
+        if (GameManager.Instance != null && GameManager.Instance.currentState == GameManager.GameState.OnTrack)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f && !stationSpawned)
+            {
+                SpawnStation();
+                stationSpawned = true;
+            }
+        }
+    }
+
+    public void StartMovement()
+    {
+        isStopped = false;
+    }
+
+    public void ResumeMovement()
+    {
+        isStopped = false;
+        timer = stationSpawnTime;
+        stationSpawned = false;
     }
 
     public void SpawnNextSection()
