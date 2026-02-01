@@ -139,13 +139,13 @@ TextureImporter:
       name: interfaz_provisional_0
       rect:
         serializedVersion: 2
-        x: 237
+        x: 249
         y: 0
-        width: 300
+        width: 61
         height: 447
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 38, y: 231, z: 241, w: 193}
+      border: {x: 0, y: 231, z: 0, w: 0}
       customData: 
       outline:
       - - {x: -73, y: -111.5}
