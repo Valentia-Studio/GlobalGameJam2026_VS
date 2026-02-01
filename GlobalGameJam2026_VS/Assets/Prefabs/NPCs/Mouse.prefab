@@ -156,8 +156,8 @@ MonoBehaviour:
   species: 2
   canSitMaterial: {fileID: 2100000, guid: b8432fea1b50ac941b7f316e8e2bf536, type: 2}
   cannotSitMaterial: {fileID: 2100000, guid: b88ed9bd3f76d9345af6c2422664e703, type: 2}
-  canSitParticlesPrefab: {fileID: 0}
-  cannotSitParticlesPrefab: {fileID: 0}
+  canSitParticlesPrefab: {fileID: 1094727876581954427, guid: be3664c8bade0a546b48b92ef3d61a02, type: 3}
+  cannotSitParticlesPrefab: {fileID: 1094727876581954427, guid: 9c35f2da3a5ea52469ba895482c6edf3, type: 3}
   CurrentSeat: {fileID: 0}
   assignedSeat: {fileID: 0}
   actsAsElefante: 0

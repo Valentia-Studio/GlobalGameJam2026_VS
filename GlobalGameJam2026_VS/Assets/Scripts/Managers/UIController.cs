@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Añadir este using
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -8,19 +8,24 @@ public class UIController : MonoBehaviour
 
     public GameObject levelCompletePanel;
     public GameObject gameCompletePanel;
-    public GameObject startButtonPanel; // Nuevo panel para el botón de inicio
+    public GameObject startButtonPanel;
     public TMP_Text levelCompleteText;
-    public Button startButton; // Referencia al botón de inicio
+    public Button startButton;
+    public Button restartButtonGameComplete;
 
     private void Awake()
     {
         Instance = this;
         HideAllPanels();
 
-        // Configurar el listener del botón
         if (startButton != null)
         {
             startButton.onClick.AddListener(OnStartButtonClicked);
+        }
+
+        if (restartButtonGameComplete != null)
+        {
+            restartButtonGameComplete.onClick.AddListener(OnRestartButtonClicked);
         }
     }
 
@@ -31,9 +36,6 @@ public class UIController : MonoBehaviour
             HideAllPanels();
             GameManager.Instance.LoadNextLevel();
         }
-
-        // Eliminar la verificación de la tecla E aquí
-        // El juego ahora se inicia con el botón
     }
 
     public void ShowLevelComplete(int levelCompleted)
@@ -50,7 +52,7 @@ public class UIController : MonoBehaviour
         gameCompletePanel.SetActive(true);
     }
 
-    public void ShowStartButton() // Nuevo método
+    public void ShowStartButton()
     {
         if (startButtonPanel != null)
         {
@@ -58,7 +60,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void HideStartButton() // Nuevo método
+    public void HideStartButton()
     {
         if (startButtonPanel != null)
         {
@@ -66,7 +68,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void HideAllPanels()
+    public void HideAllPanels()
     {
         levelCompletePanel.SetActive(false);
         gameCompletePanel.SetActive(false);
@@ -80,6 +82,15 @@ public class UIController : MonoBehaviour
         {
             HideStartButton();
             GameManager.Instance.StartGame();
+        }
+    }
+
+    private void OnRestartButtonClicked()
+    {
+        if (GameManager.Instance != null)
+        {
+            HideAllPanels();
+            GameManager.Instance.RestartGame();
         }
     }
 }

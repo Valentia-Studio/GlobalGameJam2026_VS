@@ -25,6 +25,8 @@ public class NPC : MonoBehaviour
 
     public bool actsAsElefante;
 
+    public bool isInUndesiredSeat;
+
     private Material _lastAppliedMaterial;
 
     public void EvaluateNeighbors()
@@ -164,6 +166,8 @@ public class NPC : MonoBehaviour
 
         }
 
+        isInUndesiredSeat = (CurrentSeat != null) && !canSit;
+
         var rend = GetComponent<MeshRenderer>();
         if (rend != null)
         {
@@ -187,7 +191,8 @@ public class NPC : MonoBehaviour
         if (prefab == null) return;
 
         var position = transform.position + Vector3.up * 1.5f;
-        var instance = Instantiate(prefab, position, Quaternion.identity);
+        var rotation = Quaternion.Euler(-90f, 0f, 0f);
+        var instance = Instantiate(prefab, position, rotation);
         Destroy(instance, 5f);
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -159,6 +160,37 @@ public class GameManager : MonoBehaviour
         SpawnTrain();
 
         ShowStartButton();
+    }
+
+    public void RestartGame()
+    {
+        currentLevel = 1;
+        trainIndex = 0;
+        stationsVisited = 0;
+        currentState = GameState.InitialState;
+        isFullyStopped = false;
+
+        GenerateTrainOrder();
+
+        if (currentTrain != null)
+        {
+            Destroy(currentTrain);
+        }
+
+        SectionManager.Instance.ResetForNewLevel();
+        SpawnTrain();
+
+        ShowStartButton();
+
+        if (UIController.Instance != null)
+        {
+            UIController.Instance.HideAllPanels();
+        }
+
+        if (FadeManager.Instance != null)
+        {
+            FadeManager.Instance.FadeOut(() => { });
+        }
     }
 
     private void ShowStartButton()

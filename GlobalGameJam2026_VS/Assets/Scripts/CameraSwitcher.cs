@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour
 {
-    [Tooltip("Lista de cámaras a activar/desactivar en orden (Cam1, Cam2, Cam3, Cam4)")]
     public GameObject[] cameras;
 
-    [Tooltip("Tiempo mínimo entre cambios (segundos)")]
     public float switchCooldown = 2f;
 
     private int index = 0;
