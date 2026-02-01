@@ -4,33 +4,34 @@ using System.Collections;
 
 public class NPCSpawner : MonoBehaviour
 {
-
-    public static NPCSpawner instance;
+    public static List<NPCSpawner> allSpawners = new List<NPCSpawner>();
 
     public List<GameObject> NPCs = new List<GameObject>();
     public List<GameObject> spawnPoints = new List<GameObject>();
     public List<GameObject> queueGoals = new List<GameObject>();
 
-    public int currentQueueGoal = 0;  //IMPORTANT TO RESET EACH ROUND
+    public int currentQueueGoal = 0;
+    private bool hasStartedSpawning = false;
 
-    public enum Mask {Chameleon, Elephant, Mouse, Owl, Tiger, Zebra }
-    Mask mask1 = 0;
+    public enum Mask { Chameleon, Elephant, Mouse, Owl, Tiger, Zebra }
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        allSpawners.Add(this);
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        StartCoroutine(SpawnAll());
+        allSpawners.Remove(this);
+    }
+
+    public void StartSpawning()
+    {
+        if (!hasStartedSpawning)
+        {
+            hasStartedSpawning = true;
+            StartCoroutine(SpawnAll());
+        }
     }
 
     IEnumerator SpawnAll()
@@ -49,18 +50,12 @@ public class NPCSpawner : MonoBehaviour
         yield return new WaitForSeconds(3);
     }
 
-    /// <summary>
-    /// Use for spawn NPCs and choose what mask it has. It has a limit dependant on available spaces in queue.
-    /// </summary>
-    /// <param name="mask"></param>
     public void Spawn(Mask mask)
     {
-
         if (currentQueueGoal >= queueGoals.Count) return;
 
         foreach (GameObject NPC in NPCs)
         {
-
             if (NPC.name == mask.ToString())
             {
                 int chosen = Random.Range(0, spawnPoints.Count);
@@ -78,9 +73,22 @@ public class NPCSpawner : MonoBehaviour
         }
     }
 
+    public void ResetSpawner()
+    {
+        StopAllCoroutines();
+        hasStartedSpawning = false;
+        currentQueueGoal = 0;
+
+        NPCMovement[] allNPCs = FindObjectsByType<NPCMovement>(FindObjectsSortMode.None);
+        foreach (NPCMovement npc in allNPCs)
+        {
+            Destroy(npc.gameObject);
+        }
+    }
+
     public void PurgeUndesiredSeatedNPCs()
     {
-        var npcs = FindObjectsOfType<NPC>();
+        var npcs = FindObjectsByType<NPC>(FindObjectsSortMode.None);
         foreach (var npc in npcs)
         {
             if (npc.isInUndesiredSeat)
@@ -91,6 +99,14 @@ public class NPCSpawner : MonoBehaviour
                 }
                 Destroy(npc.gameObject);
             }
+        }
+    }
+
+    public static void ResetAllSpawners()
+    {
+        foreach (NPCSpawner spawner in allSpawners)
+        {
+            spawner.ResetSpawner();
         }
     }
 }
