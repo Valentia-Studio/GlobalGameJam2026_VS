@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8666249878767418609}
   - component: {fileID: 3984257813665802}
   - component: {fileID: 1303453283187306205}
-  - component: {fileID: -2084423831433284749}
   - component: {fileID: -476192571912531082}
   m_Layer: 2
   m_Name: Owl
@@ -109,7 +108,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -162,28 +161,6 @@ MonoBehaviour:
   CurrentSeat: {fileID: 0}
   assignedSeat: {fileID: 0}
   actsAsElefante: 0
---- !u!195 &-2084423831433284749
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7262450455568258559}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &-476192571912531082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GOAL: {fileID: 0}
+  speed: 1.5
 --- !u!1001 &3774370677481473806
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,40 +1,42 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class NPCMovement : MonoBehaviour
 {
 
-    NavMeshAgent agent;
-
     [SerializeField] GameObject GOAL;
 
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
 
-    private void Update()
+    bool moving = false;
+
+    Vector3 movingVector;
+    [SerializeField] float speed;
+
+    private void FixedUpdate()
     {
-        if (agent.remainingDistance < .5f)
+        if (moving) Move();
+
+        if (GOAL != null && Vector3.Distance(gameObject.transform.position, GOAL.transform.position)< .5f)
         {
-            agent.isStopped = true;
-
             gameObject.transform.LookAt(new Vector3(Camera.main.transform.position.x, gameObject.transform.position.y, Camera.main.transform.position.z));
             transform.GetChild(0).GetComponent<Animator>().SetBool("Walk", false);
-            GetComponent<Collider>().enabled = true;
             gameObject.layer = LayerMask.NameToLayer("Grabbable");
-            Destroy(GetComponent<NavMeshAgent>());
+            moving = false;
             Destroy(this);
         }
+    }
 
+    private void Move()
+    {
+        transform.position += movingVector * Time.deltaTime * speed;
     }
 
     public void GoTo(GameObject place)
     {
         GOAL = place;
         transform.GetChild(0).GetComponent<Animator>().SetBool("Walk", true);
-        agent.SetDestination(place.transform.position);
         transform.LookAt(place.transform.position);
+        movingVector = Vector3.Normalize(place.transform.position-gameObject.transform.position);
+        moving = true;
     }
 
 }

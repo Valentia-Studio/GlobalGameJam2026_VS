@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class NPCSpawner : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class NPCSpawner : MonoBehaviour
     public int currentQueueGoal = 0;  //IMPORTANT TO RESET EACH ROUND
 
     public enum Mask {Chameleon, Elephant, Mouse, Owl, Tiger, Zebra }
+    Mask mask1 = 0;
 
     private void Awake()
     {
@@ -28,12 +30,23 @@ public class NPCSpawner : MonoBehaviour
 
     private void Start()
     {
-        Spawn(Mask.Mouse);
-        Spawn(Mask.Zebra);
+        StartCoroutine(SpawnAll());
+    }
+
+    IEnumerator SpawnAll()
+    {
         Spawn(Mask.Elephant);
-        Spawn(Mask.Tiger);
+        yield return new WaitForSeconds(3);
+        Spawn(Mask.Mouse);
+        yield return new WaitForSeconds(3);
         Spawn(Mask.Owl);
+        yield return new WaitForSeconds(3);
+        Spawn(Mask.Tiger);
+        yield return new WaitForSeconds(3);
+        Spawn(Mask.Zebra);
+        yield return new WaitForSeconds(3);
         Spawn(Mask.Chameleon);
+        yield return new WaitForSeconds(3);
     }
 
     /// <summary>
