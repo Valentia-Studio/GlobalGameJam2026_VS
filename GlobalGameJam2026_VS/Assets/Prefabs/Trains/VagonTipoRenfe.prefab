@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 3767170282160150323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.435418, y: -4.587775, z: -3.522016}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.435418, y: -2.58, z: -2.61}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3900415860805172920}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3690333756038521343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Asientos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,11 +126,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1540205200680492166}
+  - {fileID: 3070496026456095409}
   - {fileID: 5033236585797580083}
   - {fileID: 3396872801627829805}
   - {fileID: 8319251226459223402}
   - {fileID: 7112375134302821718}
-  - {fileID: 3070496026456095409}
   - {fileID: 4982790718838272494}
   - {fileID: 2828117031025480931}
   - {fileID: 8402438180799672654}
@@ -253,6 +253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -326,6 +330,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -401,6 +409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -474,6 +486,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -635,16 +651,77 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2747618795608153612}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 246715268633368196}
   m_SourcePrefab: {fileID: 100100000, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
 --- !u!4 &1540205200680492166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
   m_PrefabInstance: {fileID: 1357079945804282733}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2167419806565090876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+  m_PrefabInstance: {fileID: 1357079945804282733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2747618795608153612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167419806565090876}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000001, y: 0.019999996, z: 0.023318736}
+  m_Center: {x: 0.000000014901161, y: 0.000000014901161, z: 0.0016593802}
+--- !u!114 &246715268633368196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167419806565090876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35909dc963f569144bb4647ba3cc4b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftNeighbor: {fileID: 0}
+  rightNeighbor: {fileID: 7654052591868956022}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
+  occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!1001 &1519995936070961496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -708,6 +785,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -869,6 +950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1029,6 +1114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1102,6 +1191,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1177,6 +1270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1251,11 +1348,72 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1732437120339379747}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7654052591868956022}
   m_SourcePrefab: {fileID: 100100000, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+--- !u!1 &2438496281276555275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+  m_PrefabInstance: {fileID: 3248835460211187034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1732437120339379747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438496281276555275}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000001, y: 0.019999996, z: 0.023318736}
+  m_Center: {x: 0.0000000037252903, y: 0.000000014901161, z: 0.0016593802}
+--- !u!114 &7654052591868956022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438496281276555275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35909dc963f569144bb4647ba3cc4b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftNeighbor: {fileID: 246715268633368196}
+  rightNeighbor: {fileID: 0}
+  frontNeighbor: {fileID: 0}
+  frontLeftNeighbor: {fileID: 0}
+  frontRightNeighbor: {fileID: 0}
+  backNeighbor: {fileID: 0}
+  backLeftNeighbor: {fileID: 0}
+  backRightNeighbor: {fileID: 0}
+  occupant: {fileID: 0}
+  isBlocked: 0
+  blockedBy: {fileID: 0}
+  blockedSeatMaterial: {fileID: 0}
+  defaultSeatMaterial: {fileID: 0}
 --- !u!4 &3070496026456095409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
@@ -1399,6 +1557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1472,6 +1634,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1620,6 +1786,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1772,6 +1942,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2081,6 +2255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2154,6 +2332,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2315,6 +2497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2389,6 +2575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asiento (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2462,6 +2652,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
       propertyPath: m_Name
       value: asiento (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3352b8c5047218d4fab32be2aabfcbec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

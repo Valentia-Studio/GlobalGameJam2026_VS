@@ -342,8 +342,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119175898}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13950081, y: 0.8030363, z: -0.20702583, w: -0.54112166}
-  m_LocalPosition: {x: 19.636312, y: 11.506655, z: 8.024131}
+  m_LocalRotation: {x: 0.22225383, y: 0.44096607, z: -0.113680094, w: 0.86210734}
+  m_LocalPosition: {x: -18.003689, y: 11.506655, z: -13.485869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -436,12 +436,12 @@ GameObject:
   - component: {fileID: 263714454}
   - component: {fileID: 263714453}
   m_Layer: 0
-  m_Name: Cam1
+  m_Name: Cam3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &263714453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 0
-    m_Value: -52
+    m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -549,6 +549,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3115080930544646331, guid: d5535cc7152866f49918955ad6b58fb4, type: 3}
+      propertyPath: trainPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115080930544646331, guid: d5535cc7152866f49918955ad6b58fb4, type: 3}
       propertyPath: 'trainPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 3680459990072586312, guid: 5d046f01a386fd049a209ac766815cf8, type: 3}
@@ -613,7 +617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &507390870
 Transform:
   m_ObjectHideFlags: 0
@@ -622,8 +626,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507390869}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1193872, y: 0.85042846, z: -0.21924123, w: 0.46308914}
-  m_LocalPosition: {x: -22.96, y: 11.58, z: 13.28}
+  m_LocalRotation: {x: 0.11938712, y: 0.85042846, z: -0.21924114, w: 0.46308905}
+  m_LocalPosition: {x: -22.960003, y: 11.579999, z: 13.279997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -643,7 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 0
-    m_Value: -52
+    m_Value: 2
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -860,7 +864,7 @@ GameObject:
   - component: {fileID: 693362781}
   - component: {fileID: 693362782}
   m_Layer: 0
-  m_Name: Cam3
+  m_Name: Cam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -875,7 +879,7 @@ Transform:
   m_GameObject: {fileID: 693362780}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22225383, y: 0.44096607, z: -0.113680094, w: 0.86210734}
-  m_LocalPosition: {x: -23.96, y: 11.58, z: -11.76}
+  m_LocalPosition: {x: -26.67, y: 11.58, z: -11.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -895,7 +899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 0
-    m_Value: -52
+    m_Value: 999
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -940,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &701594957
 Transform:
   m_ObjectHideFlags: 0
@@ -970,7 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 0
-    m_Value: -52
+    m_Value: 3
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -1066,9 +1070,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameras:
-  - {fileID: 263714452}
-  - {fileID: 507390869}
   - {fileID: 693362780}
+  - {fileID: 507390869}
+  - {fileID: 263714452}
   - {fileID: 701594956}
   switchCooldown: 2
 --- !u!4 &1662203804
@@ -1084,9 +1088,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 263714454}
-  - {fileID: 507390870}
   - {fileID: 693362781}
+  - {fileID: 507390870}
+  - {fileID: 263714454}
   - {fileID: 701594957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -94,6 +94,18 @@ public class GameManager : MonoBehaviour
             isFullyStopped = false;
             SectionManager.Instance.ResumeMovement();
         }
+
+        ResetAllNPCSpawners();
+    }
+
+
+    private void ResetAllNPCSpawners()
+    {
+        NPCSpawner[] allSpawners = FindObjectsByType<NPCSpawner>(FindObjectsSortMode.None);
+        foreach (NPCSpawner spawner in allSpawners)
+        {
+            spawner.ResetSpawner();
+        }
     }
 
     public void StopAtStation()
@@ -159,6 +171,9 @@ public class GameManager : MonoBehaviour
         SectionManager.Instance.ResetForNewLevel();
         SpawnTrain();
 
+        // Resetear todos los spawners de NPCs
+        ResetAllNPCSpawners();
+
         ShowStartButton();
     }
 
@@ -179,6 +194,8 @@ public class GameManager : MonoBehaviour
 
         SectionManager.Instance.ResetForNewLevel();
         SpawnTrain();
+
+        ResetAllNPCSpawners();
 
         ShowStartButton();
 

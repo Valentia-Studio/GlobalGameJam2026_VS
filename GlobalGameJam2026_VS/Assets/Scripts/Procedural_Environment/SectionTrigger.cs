@@ -9,24 +9,46 @@ public class SectionTrigger : MonoBehaviour
             Section sectionData = other.GetComponentInParent<Section>();
             if (sectionData != null)
             {
-                // Verificar si es la sección inicial
-                bool isInitialSection = Vector3.Distance(sectionData.transform.position,
-                    Vector3.zero) < 0.1f;
-
-                if (!isInitialSection)
+                if (GameManager.Instance.currentState == GameManager.GameState.OnTrack)
                 {
-                    if (GameManager.Instance.currentState == GameManager.GameState.OnTrack)
-                    {
-                        SectionManager.Instance.SpawnNextSection();
-                    }
-                    Destroy(sectionData.gameObject, 1f);
+                    SectionManager.Instance.SpawnNextSection();
                 }
+                Destroy(sectionData.gameObject, 1f);
             }
         }
 
         if (other.gameObject.CompareTag("Station_Stop"))
         {
             GameManager.Instance.StopAtStation();
+
+            NPCSpawner spawner = FindNPCSpawnerInStation(other.transform);
+            if (spawner != null)
+            {
+                spawner.StartSpawning();
+            }
         }
+    }
+
+    private NPCSpawner FindNPCSpawnerInStation(Transform stationTransform)
+    {
+        NPCSpawner spawner = stationTransform.GetComponentInParent<NPCSpawner>();
+
+        if (spawner == null)
+        {
+            spawner = stationTransform.GetComponentInChildren<NPCSpawner>();
+        }
+
+        if (spawner == null)
+        {
+            Transform parent = stationTransform;
+            while (parent != null)
+            {
+                spawner = parent.GetComponent<NPCSpawner>();
+                if (spawner != null) break;
+                parent = parent.parent;
+            }
+        }
+
+        return spawner;
     }
 }
