@@ -1,20 +1,19 @@
 using UnityEngine;
-using TMPro;
 
 public class SectionManager : MonoBehaviour
 {
     public static SectionManager Instance;
 
-    [SerializeField] GameObject[] roadSections;
-    [SerializeField] GameObject stationPrefab;
-    [SerializeField] Transform firstSpawnPosition;
-    [SerializeField] int initialSectionsCount = 3;
-    [SerializeField] float stationSpawnTime = 30f;
-    [SerializeField] float sectionSpeed = -5f;
+    public GameObject[] roadSections;
+    public GameObject stationPrefab;
+    public Transform firstSpawnPosition;
+    public int initialSectionsCount = 3;
+    public float stationSpawnTime = 30f;
+    public float sectionSpeed = -5f;
     public float stopSmoothTime = 2f;
 
-    [HideInInspector] bool isStopped = false;
-    public float currentSpeed;
+    [HideInInspector] public bool isStopped = false;
+    [HideInInspector] public float currentSpeed;
 
     private Section lastSection;
     private float timer;
@@ -22,6 +21,7 @@ public class SectionManager : MonoBehaviour
     private float smoothTimer = 0f;
     private float startSpeed;
     private float targetSpeed;
+
     private void Awake()
     {
         Instance = this;
@@ -93,6 +93,51 @@ public class SectionManager : MonoBehaviour
         isStopped = false;
         timer = stationSpawnTime;
         stationSpawned = false;
+    }
+
+    public void ResetForNewLevel()
+    {
+        print("New Level");
+        if (firstSpawnPosition == null) return;
+
+        Vector3 savedSpawnPosition = firstSpawnPosition.position;
+        Quaternion savedSpawnRotation = firstSpawnPosition.rotation;
+
+        Section[] allSections = FindObjectsByType<Section>(FindObjectsSortMode.None);
+        foreach (Section section in allSections)
+        {
+            Destroy(section.gameObject);
+        }
+
+        lastSection = null;
+        currentSpeed = 0f;
+        isStopped = true;
+        startSpeed = 0f;
+        targetSpeed = 0f;
+        smoothTimer = 0f;
+        timer = stationSpawnTime;
+        stationSpawned = false;
+
+        Invoke(nameof(DelayedSpawnInitialSections), 0.1f);
+    }
+
+    private void DelayedSpawnInitialSections()
+    {
+        if (firstSpawnPosition == null) return;
+
+        Transform spawnPoint = firstSpawnPosition;
+
+        for (int i = 0; i < initialSectionsCount; i++)
+        {
+            GameObject newSection = Instantiate(GetRandomSection(), spawnPoint.position, Quaternion.identity);
+            Section sectionComponent = newSection.GetComponent<Section>();
+
+            if (sectionComponent != null && sectionComponent.nextSection_SpawnPosition != null)
+            {
+                spawnPoint = sectionComponent.nextSection_SpawnPosition;
+                lastSection = sectionComponent;
+            }
+        }
     }
 
     public void SpawnNextSection()
