@@ -4,16 +4,16 @@ using System.Collections;
 
 public class NPCSpawner : MonoBehaviour
 {
+
     public static NPCSpawner instance;
 
     public List<GameObject> NPCs = new List<GameObject>();
     public List<GameObject> spawnPoints = new List<GameObject>();
     public List<GameObject> queueGoals = new List<GameObject>();
 
-    public int currentQueueGoal = 0;
-    private bool hasStartedSpawning = false;
+    public int currentQueueGoal = 0;  //IMPORTANT TO RESET EACH ROUND
 
-    public enum Mask { Chameleon, Elephant, Mouse, Owl, Tiger, Zebra }
+    public enum Mask {Chameleon, Elephant, Mouse, Owl, Tiger, Zebra }
     Mask mask1 = 0;
 
     private void Awake()
@@ -30,17 +30,7 @@ public class NPCSpawner : MonoBehaviour
 
     private void Start()
     {
-        // Eliminar el StartCoroutine(SpawnAll()) de aquí
-        // Ahora se llamará manualmente cuando el tren llegue
-    }
-
-    public void StartSpawning()
-    {
-        if (!hasStartedSpawning)
-        {
-            hasStartedSpawning = true;
-            StartCoroutine(SpawnAll());
-        }
+        StartCoroutine(SpawnAll());
     }
 
     IEnumerator SpawnAll()
@@ -59,12 +49,18 @@ public class NPCSpawner : MonoBehaviour
         yield return new WaitForSeconds(3);
     }
 
+    /// <summary>
+    /// Use for spawn NPCs and choose what mask it has. It has a limit dependant on available spaces in queue.
+    /// </summary>
+    /// <param name="mask"></param>
     public void Spawn(Mask mask)
     {
+
         if (currentQueueGoal >= queueGoals.Count) return;
 
         foreach (GameObject NPC in NPCs)
         {
+
             if (NPC.name == mask.ToString())
             {
                 int chosen = Random.Range(0, spawnPoints.Count);
@@ -82,17 +78,19 @@ public class NPCSpawner : MonoBehaviour
         }
     }
 
-    public void ResetSpawner()
+    public void PurgeUndesiredSeatedNPCs()
     {
-        StopAllCoroutines();
-        hasStartedSpawning = false;
-        currentQueueGoal = 0;
-
-        // Destruir todos los NPCs existentes
-        NPCMovement[] allNPCs = FindObjectsByType<NPCMovement>(FindObjectsSortMode.None);
-        foreach (NPCMovement npc in allNPCs)
+        var npcs = FindObjectsOfType<NPC>();
+        foreach (var npc in npcs)
         {
-            Destroy(npc.gameObject);
+            if (npc.isInUndesiredSeat)
+            {
+                if (npc.CurrentSeat != null && npc.CurrentSeat.occupant == npc)
+                {
+                    npc.CurrentSeat.ClearOccupant();
+                }
+                Destroy(npc.gameObject);
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a332014b965140046bbd98f837323c88
+guid: c0fdac7e5b908ae46a988e40cae3078b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,7 +73,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -134,138 +134,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: interfaz_provisional_0
-      rect:
-        serializedVersion: 2
-        x: 249
-        y: 0
-        width: 61
-        height: 447
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 231, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: -73, y: -111.5}
-        - {x: -74, y: 87.5}
-        - {x: -25, y: 86.5}
-        - {x: 150, y: 94.5}
-        - {x: 150, y: 222.5}
-        - {x: 137, y: 223.5}
-        - {x: -34, y: 223.5}
-        - {x: -100, y: 223.5}
-        - {x: -115, y: 223.5}
-        - {x: -138, y: 216.5}
-        - {x: -138, y: -216.5}
-        - {x: -122, y: -222.5}
-        - {x: -86, y: -222.5}
-      - - {x: -113.5, y: -62}
-        - {x: -113.33333, y: -61.83333}
-        - {x: -113, y: -62.5}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8b285a823ac2874fad9c53105af69d4
-      internalID: 1545346063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: interfaz_provisional_1
-      rect:
-        serializedVersion: 2
-        x: 737
-        y: 328
-        width: 195
-        height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4548106d2d6cacc458b77db39e7816a6
-      internalID: 2111977270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: interfaz_provisional_2
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 199
-        width: 200
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 1, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0559912ef7dd2724c917511f63c54424
-      internalID: 1726893317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: interfaz_provisional_3
-      rect:
-        serializedVersion: 2
-        x: 731
-        y: 194
-        width: 196
-        height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68ebbad99c5c9d24abee997ce64ffde6
-      internalID: 4091395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: interfaz_provisional_4
-      rect:
-        serializedVersion: 2
-        x: 567
-        y: 65
-        width: 194
-        height: 79
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65fb0b296fe4104438ea88c2cd4bfa37
-      internalID: 79493587
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5f9ff245e1a7148438aa3aea1178f355
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -274,13 +148,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      interfaz_provisional_0: 1545346063
-      interfaz_provisional_1: 2111977270
-      interfaz_provisional_2: 1726893317
-      interfaz_provisional_3: 4091395
-      interfaz_provisional_4: 79493587
-      interfaz_provisional_5: 1605440453
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

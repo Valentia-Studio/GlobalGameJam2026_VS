@@ -156,11 +156,12 @@ MonoBehaviour:
   species: 5
   canSitMaterial: {fileID: 2100000, guid: b8432fea1b50ac941b7f316e8e2bf536, type: 2}
   cannotSitMaterial: {fileID: 2100000, guid: b88ed9bd3f76d9345af6c2422664e703, type: 2}
-  canSitParticlesPrefab: {fileID: 0}
-  cannotSitParticlesPrefab: {fileID: 0}
+  canSitParticlesPrefab: {fileID: 1094727876581954427, guid: be3664c8bade0a546b48b92ef3d61a02, type: 3}
+  cannotSitParticlesPrefab: {fileID: 1094727876581954427, guid: 9c35f2da3a5ea52469ba895482c6edf3, type: 3}
   CurrentSeat: {fileID: 0}
   assignedSeat: {fileID: 0}
   actsAsElefante: 0
+  isInUndesiredSeat: 0
 --- !u!114 &1269844988298635633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8041353896991476363}
     m_Modifications:
+    - target: {fileID: 656722296022478613, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842730958859585701, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969238649727642832, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280008159298172696, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2524299033806798206, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -226,6 +243,26 @@ PrefabInstance:
     - target: {fileID: 2901387109914519492, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
       propertyPath: m_Name
       value: Yuji Itadori (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690925339041585943, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204097880988668529, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481357638018479912, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078985198739989402, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245989593016338917, guid: eac2ecad49f00b64d8644c813195b518, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -309,9 +346,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4287332574527557442, guid: c723faf5607ba6a42ada3a29b7c2771a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c723faf5607ba6a42ada3a29b7c2771a, type: 3}
       propertyPath: m_Name
       value: Mascara_Camaleon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829333093618665122, guid: c723faf5607ba6a42ada3a29b7c2771a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
